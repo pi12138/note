@@ -28,4 +28,13 @@
 
 ## v2 
 
-- 
+- 格式 `snmptrap -v 1 -c community destination uptime trapoid [OID TYPE VALUE]`
+- 参数说明
+    - `-c community` snmp 配置的 community 
+    - `destination` 目的地址
+    - `uptime` 正常运行时间，可以为空，为空时取当前设备的正常运行时间
+    - `trapoid` 
+    - `[OID TYPE VALUE]` 一组 【oid 值类型 值】的数据，一次可以传输多组
+
+- trapoid 取值
+    - 1.3.6.1.6.3.1.1.5.1  Cold Start Trap
