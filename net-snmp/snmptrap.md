@@ -103,7 +103,7 @@ snmptrap -v 2c -c public 10.1.9.3:162 "" .1.3.6.1.6.3.1.1.5.6 .1.3.6.1.2.1.1.5.0
 DISMAN-EVENT-MIB::sysUpTimeInstance = Timeticks: (16976791) 1 day, 23:09:27.91  SNMPv2-MIB::snmpTrapOID.0 = OID: SNMPv2-MIB::snmpTraps.6    SNMPv2-MIB::sysName.0 = STRING: xxx
 ```
 
--v3
+- v3
 
 ```shell
 snmptrap -v 3 -l authPriv -e 0x8000000001020304 -u myuser -a SHA -A password -x AES -X password 10.1.9.3:162 "" .1.3.6.1.6.3.1.1.5.5 .1.3.6.1.2.1.1.5.0 s xxx
