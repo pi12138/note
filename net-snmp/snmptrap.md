@@ -37,7 +37,7 @@
 - specific-type 企业自定义
 
 
-## v2 
+## v2c
 
 - 格式 `snmptrap -v 1 -c community destination uptime trapoid [OID TYPE VALUE]`
 - 参数说明
