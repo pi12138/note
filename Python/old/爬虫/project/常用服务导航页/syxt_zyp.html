@@ -1,0 +1,198 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="http://61.163.231.194:8080/Lab2.0/">
+	<title>软件学院实践报告管理系统</title>
+	<link id="bs-css" href="css/bootstrap-classic.css" rel="stylesheet">
+	<link href="css/charisma-app.css" rel="stylesheet">
+	
+	<script type="text/javascript">
+	function fillZero(v){
+		   if(v<10){
+		       v='0'+v;
+		   }
+		   return v;
+	}
+	function testing()
+	{
+		var Week=['星期天','星期一','星期二','星期三','星期四','星期五','星期六'];
+	    var d;
+	    d = new Date();
+	    w = Week[d.getDay()];
+	    Y = d.getFullYear();
+	    M = fillZero(d.getMonth()+1);
+	    D = fillZero(d.getDate());
+	    H = fillZero(d.getHours());
+	    I = fillZero(d.getMinutes());
+	    S = fillZero(d.getSeconds());
+	    var showData = w+'  '+Y+'-'+M+'-'+D+' '+H+':'+I+':'+S;    
+		return showData;
+	}
+	function showGMTDateTime() {
+		$("#showtime").empty();
+		$("#showtime").append(testing().toString());
+		setTimeout('showGMTDateTime()', 1000);
+	
+	}
+	</script>	
+	
+	<style type="text/css">
+	  body {
+		padding-bottom: 0px;
+	  }
+	  .sidebar-nav {
+		padding: 9px 0;
+	  }
+	  .text-warning {
+  		color: #c09853;
+	  }
+	  .text-error {
+  		color: #b94a48;
+	  }
+	  .text-info {
+  		color: #3a87ad;
+	  }
+ 	  .text-success {
+  		color: #468847;
+	  }
+	</style>
+	
+</head>
+
+<body onload="showGMTDateTime();">
+	<!-- topbar starts -->
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				
+				<a class="brand" href="student/studentIndex.jsp"> <img alt="软件学院" src="img/logo20.png" /> <span>软件学院实践报告管理系统</span></a>
+				
+				<!-- theme selector starts --> 
+				<div class="btn-group pull-right theme-container" >
+					<a class="btn dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
+						<i class="icon-tint"></i><span class="hidden-phone">点击更换主题</span>
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" id="themes">
+						<li><a data-value="classic" href="javascript:void(0);"><i class="icon-blank"></i> 黑色</a></li>
+						<li><a data-value="cerulean" href="javascript:void(0);"><i class="icon-blank"></i> 天蓝</a></li>
+						<li><a data-value="redy" href="javascript:void(0);"><i class="icon-blank"></i> 红紫</a></li>
+						<li><a data-value="spacelab" href="javascript:void(0);"><i class="icon-blank"></i> 牛奶</a></li>
+					</ul>
+					
+				</div>
+				<!-- theme selector ends -->
+				
+				<!-- user dropdown starts -->
+				<div class="btn-group pull-right" >
+					<a class="btn dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
+						<i class="icon-user"></i><span class="hidden-phone">  周友鹏</span>
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li class="divider"></li>
+						<li><a href="student/StudentInfo_index?sid=1615925256" target="rightFrame">个人资料修改</a></li>
+						<li class="divider"></li>
+						<li><a href="student/StudentInfo_updatePasswordInput" target="rightFrame">个人密码修改</a></li>
+						<li class="divider"></li>
+						<li><a href="studentOut.action">退出</a></li>
+					</ul>
+				</div>
+				<!-- user dropdown ends -->		
+				
+				<!-- help starts -->
+				<div class="btn-group pull-right" >
+					<a class="btn" href="#myModal" role="button" data-toggle="modal">
+						<i class="icon-question-sign"></i><span> 帮助</span>
+					</a>
+				</div>
+				
+				 <!-- Modal -->
+				<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h3 id="myModalLabel">帮助</h3>
+					</div>
+					<div class="modal-body">
+						<p class="text-info">版权所有：软件学院</p>
+						<p class="text-info">邮箱地址：qianyanxiaoc@gmail.com</p>
+					</div>
+					<div class="modal-footer">
+						<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+					</div>
+				</div>
+				<!-- help ends -->	
+				
+				<div class="btn-group pull-right" >
+					<a class="btn" href="student/StudentInfo_termInfo?sid=1615925256" target="rightFrame">
+						<span>2018-2019学年第一学期</span>
+					</a>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- topbar ends -->
+		<div class="container-fluid">
+		<div class="row-fluid">
+				
+			<!-- left menu starts -->
+			<div class="span2 main-menu-span">
+				<div class="well nav-collapse sidebar-nav">
+					<ul class="nav nav-tabs nav-stacked main-menu" id="nav">
+					<li class="nav-header hidden-tablet">报告查看</li>
+						<li><a class="ajax-link" href="student/StudentReport_unFinish?sid=1615925256&cid=2016151008&term=20180904152117842"><i class="icon-pencil"></i><span class="hidden-tablet"> 未完成的实验报告</span></a></li>
+						<li><a class="ajax-link" href="student/StudentReport_finish?sid=1615925256&term=20180904152117842"><i class="icon-ok"></i><span class="hidden-tablet"> 已完成的实验报告</span></a></li>
+						<li class="nav-header hidden-tablet">实训查看</li>
+						<li><a class="ajax-link" href="student/StudentTrainReport_unFinish?sid=1615925256&cid=2016151008&term=20180904152117842"><i class="icon-pencil"></i><span class="hidden-tablet"> 未完成的实训报告</span></a></li>
+						<li><a class="ajax-link" href="student/StudentTrainReport_finish?sid=1615925256&term=20180904152117842"><i class="icon-ok"></i><span class="hidden-tablet"> 已完成的实训报告</span></a></li>
+						<li class="nav-header hidden-tablet">成绩查询</li>
+						<li><a class="ajax-link" href="student/StudentReport_searchScore?sid=1615925256&term=20180904152117842"><i class="icon-search"></i><span class="hidden-tablet"> 实验成绩查询</span></a></li>
+						<li><a class="ajax-link" href="student/StudentTrainReport_searchScore?sid=1615925256&term=20180904152117842"><i class="icon-search"></i><span class="hidden-tablet"> 实训成绩查询</span></a></li>
+						<li class="nav-header hidden-tablet">个人资料管理</li>
+						<li><a class="ajax-link" href="student/StudentInfo_index?sid=1615925256"><i class="icon-file"></i><span class="hidden-tablet"> 资料管理</span></a></li>				
+						<li class="nav-header hidden-tablet">当前时间</li>
+						<li><a class="ajax-link" href="javascript:void(0);"><span id="showtime" class="hidden-tablet"></span></a></li>
+					</ul>
+				</div><!--/.well -->
+			</div><!--/span-->
+			
+			<noscript>
+				<div class="alert alert-block span10">
+					<h4 class="alert-heading">Warning!</h4>
+					<p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+				</div>
+			</noscript>
+			<!-- left menu ends -->
+			<div id="main" class="span10" style="height:550px;">
+			<span id="load"></span>
+			<iframe height="100%" width="100%" border="0" frameborder="0" src="student/right.jsp" name="rightFrame" id="rightFrame" title="rightFrame"></iframe>
+		    </div><!--/#content.span10-->
+				
+		</div><!--/fluid-row-->
+		
+	</div><!--/.fluid-container-->
+			<p align="center">版本所有: <a href="javascript:void(0)">南阳理工软件学院</a>&nbsp;&nbsp;&nbsp;技术支持: <a href="javascript:void(0)">前研工作室</a></p>
+		
+	<!-- external javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+
+	<!-- jQuery -->
+	<script src="js/jquery-1.7.2.min.js"></script>
+	<!-- 异步加载    -->
+	<script src="js/page/switch.js"></script>
+	<!-- Help对话框 -->
+	<script src="js/bootstrap-modal.js"></script>
+	<!-- 主题列表 -->
+	<script src="js/bootstrap-dropdown.js"></script>
+	<!-- cookie -->
+	<script src="js/jquery.cookie.js"></script>
+	<!-- 全局字体 -->
+	<script src="js/charisma.js"></script>
+	
+	
+</body>
+</html>

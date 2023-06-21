@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<School address="nanyang" name="nyist">
+		<person>
+			<name>zyp</name>
+			<age>20</age>
+			<sex>man</sex>
+		</person>
+		<person>
+			<name>gyj</name>
+			<age>20</age>
+			<sex>man</sex>
+		</person>
+		<person>
+			<name>kah</name>
+			<age>21</age>
+			<sex>man</sex>
+		</person>
+	</School>
