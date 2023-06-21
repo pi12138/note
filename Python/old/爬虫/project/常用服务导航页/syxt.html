@@ -1,0 +1,346 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+  <head>
+
+    <base href="http://61.163.231.194:8080/Lab2.0/">
+
+	<head>
+
+		<meta http-equiv="pragma" content="no-cache">
+
+		<meta http-equiv="cache-control" content="no-cache">
+
+		<meta http-equiv="expires" content="0">
+
+		<meta name=vs_defaultClientScript content="JavaScript">
+
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+
+		<meta http-equiv="description" content="This is my page">
+
+		<title>软件学院实践教学过程综合管理系统</title>
+
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script> 
+
+		<script type="text/javascript" src="js/login/login.js"></script>	
+
+		
+
+		
+
+<style type="text/css">
+
+body {
+
+	background-color: #0d3b5d;
+
+	margin: 0;
+
+	padding: 0;
+
+	font: Arial, Helvetica, sans-serif;
+
+	text-align:center;
+
+	font-size:20px;
+
+}
+
+#main{
+
+	/*background-color:#CCC;*/
+
+	width:1200px;
+
+	margin:0 auto;
+
+	text-align:center;
+
+	height:100%;
+
+	background-image:url(css/img/bgs1.jpg);
+
+	background-repeat:no-repeat;
+
+	z-index:-1;
+
+}
+
+
+
+form{
+
+	margin:0 auto;
+
+	}
+
+	
+
+#mains-bg{
+
+	width:100%;
+
+	height:100%;
+
+	text-align:center;
+
+}
+
+
+
+#title{
+
+	padding-top:15%;
+
+	width:100%;
+
+	/*background-color:#CCF;*/
+
+}
+
+
+
+#title img{
+
+	width:70%;
+
+	padding-left:3%;
+
+}
+
+
+
+#content{
+
+	background-image:url(css/img/ngbg3.jpg);
+
+	background-repeat:no-repeat;
+
+	width:100%;
+
+	height:400px;
+
+	z-index:1;
+
+}
+
+
+
+#ct-left{
+
+	padding-top:5%;
+
+	margin-left:-80px;
+
+}
+
+	
+
+#ct-right{
+
+	margin-top:-160px;
+
+	margin-left:25%;
+
+}
+
+
+
+ul{
+
+	width:100%;
+
+}
+
+
+
+ul li{
+
+	list-style-type:none;
+
+	display:inline;
+
+}
+
+ul li div{
+
+	text-align:left;
+
+	padding:5px;
+
+	padding-left:33%;
+
+}
+
+
+
+input,select{
+
+	width:180px;
+
+	height:25px;
+
+	border:solid 1px #333;
+
+}
+
+#image{
+
+	border:medium none;
+
+	width:100px;
+
+	height:100px;
+
+}
+
+a {font-size:16px} 
+
+a:link {color: blue; text-decoration:none;} //未访问：蓝色、无下划线   
+
+a:active:{color: red; } //激活：红色   
+
+a:visited {color:purple;text-decoration:none;} //已访问：purple、无下划线   
+
+a:hover {color: red; text-decoration:underline;} //鼠标移近：红色、下划线
+
+</style>
+
+	</head>
+
+
+
+	<body>
+
+    <div id="main">
+
+		<div id="mains-bg">
+
+				<div id="title">
+
+					<img id="ng_title" src="css/img/1_100108083557_1.jpg" alt="软件学院实践教学过程综合管理系统" />
+
+				</div>
+
+				<div id="content">
+
+					<div id="ct-left">
+
+						<ul>
+
+							
+
+							<li>
+
+								<div>
+
+									<span>帐 &nbsp;号：</span>
+
+									<input id="uid" type="text" name="userid" />
+
+								</div>
+
+							</li>
+
+							<li>
+
+								<div>
+
+									<span id="t1">密 &nbsp;码：</span>
+
+									<input id="passwd" type="password" name="password" />
+
+								</div>
+
+							</li>
+
+							<li>
+
+								<div>
+
+									<span>身 &nbsp;份：</span>
+
+									<select id="quan" name="quan">
+
+										<option value="Student">
+
+											学 生
+
+										</option>
+
+										<option value="Teacher">
+
+											教 师
+
+										</option>
+
+									</select>
+
+								</div>
+
+							</li>
+
+							<li>		
+
+								<div id="message" style="color: red">
+
+									&nbsp;&nbsp;&nbsp;
+
+								</div>
+
+							</li>
+
+						</ul>
+
+					</div>
+
+					<div id="ct-right">
+
+
+
+					 <input type="image"  id="image" src="css/img/button_1.jpg"
+
+							onmouseover="this.src='css/img/button_2.jpg'"
+
+								onmouseout="this.src='css/img/button_1.jpg'" alt="enter" value="submit"/>
+
+					<p/>
+
+					<a href="PasswordProtect_index" target="_blank">忘记密码？</a>
+
+
+
+					</div>
+
+					<div id="tip1" name="sb">
+
+				</div></div>
+
+		</div>
+
+    
+
+    <div id="img2" style="Z-INDEX: 11; LEFT: 2px; WIDTH: 50px; POSITION: absolute; TOP: 43px; HEIGHT: 50px; visibility: visible;">
+
+  		<a target="_blank" href="explan.jsp" title="系统帮助">
+
+			<img width="120" height="100" border="0" src="css/img/img2.jpg">
+
+		</a>
+
+  	</div>
+
+    <script type="text/javascript" src="js/pictureMove.js"></script>
+
+	</body>
+
+</html>
+
+
+

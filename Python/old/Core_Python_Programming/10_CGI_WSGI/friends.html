@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Friends CGI Demo (static screen)</title>
+</head>
+<body>
+    <h3>Friend list for: <i>New USER</i></h3>
+    <form action="/cgi-bin/friendsA.py">
+        <b>Enter your name:</b>
+        <input type="text" name="person" id="" value="NEW USER" size="15">
+        <p>
+            <b>How many friends do you have?</b>
+            <input type="radio" name="howmany" value="0" checked> 0
+            <input type="radio" name="howmany" value="10" checked> 10
+            <input type="radio" name="howmany" value="25" checked> 25
+            <input type="radio" name="howmany" value="50" checked> 50
+            <input type="radio" name="howmany" value="100" checked> 100
+        </p>
+        <input type="submit">
+    </form>
+</body>
+</html>
+
+<html>
+    <head>
+        <title>Advanced CGi Demo</title>
+    </head>
+    <body>
+        <h2>Your Uploaded Data</h2>
+        <h3>Your cookie value is: <b>{}</b></h3>
+        <h3>Your name is: <b>{}</b></h3>
+        <h3>You can program in the following languages: </h3>
+        <ul>{}</ul>
+        <h3>Your uploded file...
+            <br>
+            Name: <i>{}</i><br>
+            Contents:
+        </h3>
+        <pre>{}</pre>
+        Click <a href="{}"><b>here</b></a> to return to form.
+    </body>
+</html>

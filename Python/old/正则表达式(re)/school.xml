@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shcool>
+	<teacher>
+		<name>AAA</name>
+		<age>20</age>
+		<sex>man</sex>
+	</teacher>
+	<student>
+		<name>bbb</name>
+		<age>16</age>
+		<sex>man</sex>
+	</student>
+	<student>
+		<name>ccc</name>
+		<age>15</age>
+		<sex>max</sex>
+	</student>
+
+
+</shcool>

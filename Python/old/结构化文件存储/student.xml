@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<shcool>
+	<Teacher desc="PythonTeacher" score="good">
+		<name>zyp</name>
+		<age Detail="This is younger">20</age>
+		<mobile>18790065681</mobile>
+	</Teacher>
+	<student>
+		<name Other="他是班长">wyf</name>
+		<age Detail="The yongest boy in class">14</age>
+	</student>
+	<student>
+		<name>LiSi</name>
+		<age>11</age>
+		<mobile>122222222</mobile>
+	</student>
+</shcool>
