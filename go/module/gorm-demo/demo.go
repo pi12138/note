@@ -81,3 +81,51 @@ func TestUpdate() {
 	fmt.Println("4---", b1.AuthorId, b1.Author.Id)
 
 }
+
+func TestDel() {
+	db := database.GetDB()
+
+	var count int64
+	if db.Model(&models.Author{}).Where("`name` = ?", "authDel").Count(&count); count == 0 {
+		a1 := models.Author{
+			Name: "authDel",
+			Blogs: []models.Blog{
+				{
+					Title: "one",
+				},
+				{
+					Title: "two",
+				},
+			},
+			Company: models.Company{
+				Name: "CompanyOne",
+			},
+		}
+		db.Create(&a1)
+	}
+
+	var a1 models.Author
+
+	db.Model(&models.Author{}).Where("`name` = ?", "authDel").Preload("Blogs").Preload("Company").First(&a1)
+	// > DELETE FROM `blogs` WHERE `blogs`.`author_id` = 1
+	// > DELETE FROM `authors` WHERE `authors`.`id` = 1
+	// 会删除 has many 的 Blogs
+	// 但是不会删除 belongs to 的 Company
+	// 官方文档: You are allowed to delete selected has one/has many/many2many relations with Select when deleting records
+	db.Select("Blogs", "Company").Delete(&a1)
+
+	/*
+		db.Model(&models.Author{}).Where("`name` = ?", "authDel").Preload("Blogs").First(&a1)
+		// > DELETE FROM `authors` WHERE `authors`.`id` = 1
+		// 不会删除关联关系
+		db.Delete(&a1)
+	*/
+
+	/*
+		db.Model(&models.Author{}).Where("`name` = ?", "authDel").Preload("Blogs").First(&a1)
+		// > DELETE FROM `blogs` WHERE `blogs`.`author_id` = 1
+		// > DELETE FROM `authors` WHERE `authors`.`id` = 1
+		// 将加载出来的 Blogs 删除
+		db.Select("Blogs").Delete(&a1)
+	*/
+}

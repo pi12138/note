@@ -15,7 +15,8 @@ func Demo() {
 	// TestJson()
 	// TestSlice()
 	// TestOrm()
-	TestUpdate()
+	// TestUpdate()
+	TestDel()
 }
 
 func TestJson() {
@@ -67,7 +68,7 @@ func SliceArgs(s []string) {
 
 func main() {
 
-	db.InitDB()
+	db.GetDB()
 
 	args := os.Args
 	// fmt.Println(args)
