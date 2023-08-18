@@ -1,7 +1,7 @@
 package main
 
 import (
-	forrangedemo "base/for-range-demo"
+	"base/time_demo"
 	"fmt"
 )
 
@@ -10,7 +10,7 @@ func main() {
 	// map_and_slice.MapUpdate()
 	// type_assertion_demo.Demo()
 	// json_demo.ParseToPointer()
-	// time_demo.FormatTime()
+	time_demo.FormatTime()
 	// struct_demo.StructCombination()
 	// netip_demo.ParseIp()
 	// template_demo.TemplateDemo()
@@ -35,8 +35,8 @@ func main() {
 
 	// runtimedemo.Callers()
 	// contextdemo.Demo()
-	forrangedemo.RangePonit()
-	forrangedemo.RangeUint()
+	// forrangedemo.RangePonit()
+	// forrangedemo.RangeUint()
 }
 
 func TestVarInit() {

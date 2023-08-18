@@ -11,4 +11,5 @@ func FormatTime() {
 	fmt.Println(a.String())
 	fmt.Println(a.Format(time.RFC3339))
 	fmt.Println(a.Format(time.RFC3339Nano))
+	fmt.Println(a.UTC().Format(time.RFC3339))
 }
