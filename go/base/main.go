@@ -1,7 +1,7 @@
 package main
 
 import (
-	"base/time_demo"
+	goroutinesdemo "base/goroutines_demo"
 	"fmt"
 )
 
@@ -10,7 +10,7 @@ func main() {
 	// map_and_slice.MapUpdate()
 	// type_assertion_demo.Demo()
 	// json_demo.ParseToPointer()
-	time_demo.FormatTime()
+	// time_demo.FormatTime()
 	// struct_demo.StructCombination()
 	// netip_demo.ParseIp()
 	// template_demo.TemplateDemo()
@@ -37,6 +37,8 @@ func main() {
 	// contextdemo.Demo()
 	// forrangedemo.RangePonit()
 	// forrangedemo.RangeUint()
+	goroutinesdemo.WriteRemoteFile()
+	// goroutinesdemo.WriteLocalFile()
 }
 
 func TestVarInit() {
