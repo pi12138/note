@@ -2,6 +2,9 @@ package map_and_slice
 
 import (
 	"fmt"
+	"math/rand"
+	"reflect"
+	"time"
 
 	"golang.org/x/exp/maps"
 )
@@ -71,4 +74,129 @@ func MapUpdate() {
 	maps.Copy(m1, m2)
 
 	fmt.Println(m1)
+}
+
+func CompareEqualAndDeepEqual() {
+	v1 := map[int]map[int]string{}
+	v2 := map[int]map[int]string{}
+
+	deepCopy := func(v map[int]string) map[int]string {
+		vv := make(map[int]string, len(v))
+		for key, value := range v {
+			vv[key] = value
+		}
+		return vv
+	}
+
+	for i := 0; i < 100; i++ {
+		vv := map[int]string{
+			i: randomStr(10),
+		}
+		v1[i] = vv
+		v2[i] = deepCopy(vv)
+	}
+
+	var count int = 10000
+	start := time.Now()
+	for i := 0; i < count; i++ {
+		Equal(v1, v2)
+	}
+	fmt.Printf("count: %d, Equal cost: %s\n", count, time.Since(start))
+
+	start = time.Now()
+	for i := 0; i < count; i++ {
+		reflect.DeepEqual(v1, v2)
+	}
+	fmt.Printf("count: %d, DeepEqual cost: %s\n", count, time.Since(start))
+}
+
+func randomStr(length int) string {
+	const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+	rand.Seed(time.Now().UnixNano())
+
+	b := make([]byte, length)
+	for i := range b {
+		b[i] = charset[rand.Intn(len(charset))]
+	}
+	return string(b)
+}
+
+func Equal(v1, v2 map[int]map[int]string) bool {
+	if len(v1) != len(v2) {
+		return false
+	}
+
+	equalValue := func(vv1, vv2 map[int]string) bool {
+		if len(vv1) != len(vv2) {
+			return false
+		}
+		for k, v := range vv1 {
+			if vv, ok := vv2[k]; !ok || v != vv {
+				return false
+			}
+		}
+		return true
+	}
+
+	for key, value := range v1 {
+		if value2, ok := v2[key]; !ok || !equalValue(value, value2) {
+			return false
+		}
+	}
+	return true
+}
+
+func generateMap(length int) map[int]string {
+	m := make(map[int]string)
+	for i := 0; i < length; i++ {
+		m[i] = randomStr(10)
+	}
+	return m
+}
+
+func RangeMapK(m map[int]string) {
+	// m := generateMap(100)
+	var tmp string
+	for k := range m {
+		tmp = m[k]
+	}
+	_ = tmp
+}
+
+func RangeMapKv(m map[int]string) {
+	// m := generateMap(100)
+	var tmp string
+	for _, v := range m {
+		tmp = v
+	}
+	_ = tmp
+}
+
+type item struct {
+	a int
+	b [4096]int
+}
+
+func generateStructMap(l int) map[int]item {
+	m := make(map[int]item)
+	for i := 0; i < l; i++ {
+		m[i] = item{}
+	}
+	return m
+}
+
+func RangeStructMapK(m map[int]item) {
+	var tmp item
+	for k := range m {
+		tmp = m[k]
+	}
+	_ = tmp
+}
+
+func RangeStructMapKv(m map[int]item) {
+	var tmp item
+	for _, v := range m {
+		tmp = v
+	}
+	_ = tmp
 }

@@ -1,7 +1,7 @@
 package main
 
 import (
-	goroutinesdemo "base/goroutines_demo"
+	"base/map_and_slice"
 	"fmt"
 )
 
@@ -37,8 +37,9 @@ func main() {
 	// contextdemo.Demo()
 	// forrangedemo.RangePonit()
 	// forrangedemo.RangeUint()
-	goroutinesdemo.WriteRemoteFile()
+	// goroutinesdemo.WriteRemoteFile()
 	// goroutinesdemo.WriteLocalFile()
+	map_and_slice.CompareEqualAndDeepEqual()
 }
 
 func TestVarInit() {

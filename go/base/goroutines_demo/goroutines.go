@@ -84,7 +84,7 @@ func WriteRemoteFile() {
 	cmd := exec.Command("ssh", "root@10.1.9.2", "/root/tools/jsoncheck -f /tmp/remote.txt")
 	output, err := cmd.Output()
 	if err != nil {
-		fmt.Printf("命令执行出错: %s\n", err)
+		fmt.Printf("命令执行出错:\n")
 		return
 	}
 	fmt.Printf("file: %s\n%s\n", dumpFilePath, (output))
