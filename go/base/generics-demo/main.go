@@ -15,7 +15,7 @@ type StructInterface interface {
 }
 
 func PrintName(v StructInterface) {
-	log.Panicf("name: %s", v.Name)
+	log.Panicf("name: %s", v.PrintName())
 }
 
 func main() {
