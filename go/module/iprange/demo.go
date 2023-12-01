@@ -1,4 +1,4 @@
-package iprange
+package main
 
 import (
 	"fmt"

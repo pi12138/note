@@ -1,6 +1,0 @@
-github.com/apparentlymart/go-cidr v1.1.0 h1:2mAhrMoF+nhXqxTzSZMUzDHkLjmIHC+Zzn4tdgBZjnU=
-github.com/apparentlymart/go-cidr v1.1.0/go.mod h1:EBcsNrHc3zQeuaeCeCtQruQm+n9/YjEn/vI25Lg7Gwc=
-github.com/netdata/go.d.plugin v0.48.0 h1:kfcWbPG4wUHPdc+5fGerJhF3CvaIr5tWPiEYFVp4q28=
-github.com/netdata/go.d.plugin v0.48.0/go.mod h1:B0UTdNGWap9HnsXMdoJjsTl4dliunH/h5CerX518XeM=
-go4.org/netipx v0.0.0-20220925034521-797b0c90d8ab h1:+yW1yrZ09EYNu1spCUOHBBNRbrLnfmutwyhbhCv3b6Q=
-go4.org/netipx v0.0.0-20220925034521-797b0c90d8ab/go.mod h1:tgPU4N2u9RByaTN3NC2p9xOzyFpte4jYwsIIRF7XlSc=
