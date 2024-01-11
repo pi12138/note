@@ -12,11 +12,11 @@ func ExitGoroutine() {
 	runtime.GOMAXPROCS(1)
 	var v int = 10
 	ctx, cancel := context.WithCancel(context.TODO())
-	c := make(chan struct{})
+	// c := make(chan struct{})
 
 	go GoOne(&v)
 	go GoTwo(ctx)
-	go GoThree(c)
+	// go GoThree(c)
 
 	time.Sleep(time.Second * 4)
 	s1 := time.Now()
@@ -24,7 +24,7 @@ func ExitGoroutine() {
 	s2 := time.Now()
 	cancel()
 	s3 := time.Now()
-	c <- struct{}{}
+	// c <- struct{}{}
 	s4 := time.Now()
 
 	time.Sleep(time.Second * 5)
@@ -32,7 +32,7 @@ func ExitGoroutine() {
 }
 
 func Request() {
-	if _, err := http.Get("http://localhost:8080/sleep?sleep=3"); err != nil {
+	if _, err := http.Get("http://localhost:8080/sleep?sleep=10"); err != nil {
 		fmt.Printf("error: %s\n", err)
 	}
 }

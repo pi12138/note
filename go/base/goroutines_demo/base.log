@@ -43,3 +43,6 @@
 [INFO] 2024/01/08 10:05:41 log.go:35: [initLog] 初始化log成功
 [INFO] 2024/01/08 10:06:15 log.go:35: [initLog] 初始化log成功
 [INFO] 2024/01/08 10:07:45 log.go:35: [initLog] 初始化log成功
+[INFO] 2024/01/10 15:33:32 log.go:35: [initLog] 初始化log成功
+[INFO] 2024/01/10 15:35:42 log.go:35: [initLog] 初始化log成功
+[INFO] 2024/01/10 15:37:01 log.go:35: [initLog] 初始化log成功
