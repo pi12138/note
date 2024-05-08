@@ -1,8 +1,9 @@
-go 1.21.1
+go 1.21.3
 
 use (
 	./cobra
+	./gin-demo
 	./gorm-demo
 	./iprange
-	./gin-demo
+	./multierror
 )
