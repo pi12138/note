@@ -6,4 +6,5 @@ use (
 	./gorm-demo
 	./iprange
 	./multierror
+	./gonginx
 )
