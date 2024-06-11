@@ -1,8 +1,8 @@
 package main
 
 import (
-	packagedemo "base/package-demo"
 	"fmt"
+	"base/filepath"
 )
 
 func main() {
@@ -40,7 +40,8 @@ func main() {
 	// goroutinesdemo.WriteRemoteFile()
 	// goroutinesdemo.WriteLocalFile()
 	// map_and_slice.CompareEqualAndDeepEqual()
-	packagedemo.Exec()
+	// packagedemo.Exec()
+	filepath.Demo()
 }
 
 func TestVarInit() {
