@@ -1,6 +1,7 @@
 package filedemo
 
 import (
+	"fmt"
 	"io/ioutil"
 	"os"
 	"sync"
@@ -29,4 +30,17 @@ func WriteFile(f *os.File, c string) {
 	// lock.Lock()
 	// defer lock.Unlock()
 	f.WriteString(c)
+}
+
+func Stat() {
+	FileInfo, err := os.Stat("/opt")
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+	fmt.Println(FileInfo.Name(), FileInfo.IsDir(), FileInfo.Mode())
+	fmt.Printf("%T %b %b\n", FileInfo.Mode().IsRegular(), FileInfo.Mode().Perm(), FileInfo.Mode().Type())
+	fmt.Printf("%d\n", FileInfo.Mode())
+
+	fmt.Printf("%d %d %d\n", 0756&0200, 0756&02, 0756&020)
 }

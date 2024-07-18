@@ -1,4 +1,4 @@
-package reflection
+package main
 
 import (
 	"encoding/json"
@@ -75,18 +75,22 @@ func SetStruct() {
 func CanSet() {
 	var p1 *int
 	var p2 = new(int)
-	var p3 []int
+	p3 := make([]int, 0)
+	p3 = append(p3, 1)
 
 	v1 := reflect.ValueOf(p1)
 	v2 := reflect.ValueOf(p2)
-	v3 := reflect.ValueOf(&p3)
+	v3 := reflect.ValueOf(p3)
 
 	// fmt.Println(p1, *p2)
-	fmt.Println(v1.Elem().CanSet(), v2.Elem().CanSet(), v3.CanSet(), v3.Elem().CanSet())
-	v2.Elem().SetInt(10)
-	fmt.Println(*p2, v1.IsNil(), v1.Elem().IsZero())
+	fmt.Println(v1.Elem().CanSet())
+	fmt.Println(v2.Elem().CanSet())
+	fmt.Println(v3.CanSet(), v3.CanAddr(), v3.Len())
+	fmt.Println(v3.Index(0))
+	// v2.Elem().SetInt(10)
+	// fmt.Println(*p2, v1.IsNil(), v1.Elem().IsZero())
 
-	v1.Elem().SetInt(20)
+	// v1.Elem().SetInt(20)
 }
 
 func PointCanSet() {
