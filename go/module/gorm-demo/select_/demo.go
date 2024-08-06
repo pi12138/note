@@ -129,29 +129,29 @@ func QueryUseInstance() {
 	log.Printf("cl: %v, scl: %v", cl, scl)
 }
 
-func SelfRelation() {
-	var user M.User
-	db.Where("id = ?", 21).Preload("Father").First(&user)
-	log.Printf("Father: %v", user.Father)
-}
+// func SelfRelation() {
+// 	var user M.User
+// 	db.Where("id = ?", 21).Preload("Father").First(&user)
+// 	log.Printf("Father: %v", user.Father)
+// }
 
-func DefaultValue() {
-	var user M.User
-	db.Where("id = ?", 21).First(&user)
-	fmt.Printf("user id: %d, user cards: %#v, isnil: %t len: %d, usernames: %#v\n", user.ID, user.CreditCards, user.CreditCards == nil,
-		len(user.CreditCards), user.Usernames)
-	fmt.Println(user.One, user.Ones)
+// func DefaultValue() {
+// 	var user M.User
+// 	db.Where("id = ?", 21).First(&user)
+// 	fmt.Printf("user id: %d, user cards: %#v, isnil: %t len: %d, usernames: %#v\n", user.ID, user.CreditCards, user.CreditCards == nil,
+// 		len(user.CreditCards), user.Usernames)
+// 	fmt.Println(user.One, user.Ones)
 
-	db.Model(&user).Association("CreditCards").Find(&user.CreditCards)
-	fmt.Printf("user id: %d, user cards: %#v, isnil: %t len: %d\n", user.ID, user.CreditCards, user.CreditCards == nil, len(user.CreditCards))
+// 	db.Model(&user).Association("CreditCards").Find(&user.CreditCards)
+// 	fmt.Printf("user id: %d, user cards: %#v, isnil: %t len: %d\n", user.ID, user.CreditCards, user.CreditCards == nil, len(user.CreditCards))
 
-	// var card M.CreditCard
-	// db.Where("id = ?", 21).First(&card)
-	// fmt.Printf("card id: %d, user: %#v, belongto: %#v\n", card.ID, card.User, card.BelongTo)
-	// db.Model(&card).Association("User").Find(card.User)
-	// db.Model(&card).Association("BelongTo").Find(&card.BelongTo)
-	// fmt.Printf("card id: %d, user: %#v, belongto: %#v\n", card.ID, card.User, card.BelongTo)
-}
+// 	// var card M.CreditCard
+// 	// db.Where("id = ?", 21).First(&card)
+// 	// fmt.Printf("card id: %d, user: %#v, belongto: %#v\n", card.ID, card.User, card.BelongTo)
+// 	// db.Model(&card).Association("User").Find(card.User)
+// 	// db.Model(&card).Association("BelongTo").Find(&card.BelongTo)
+// 	// fmt.Printf("card id: %d, user: %#v, belongto: %#v\n", card.ID, card.User, card.BelongTo)
+// }
 
 func Demo() {
 	// UseForeignKeyPreload()
@@ -163,5 +163,5 @@ func Demo() {
 	// Association()
 	// QueryUseInstance()
 	// SelfRelation()
-	DefaultValue()
+	// DefaultValue()
 }

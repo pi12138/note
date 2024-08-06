@@ -16,7 +16,7 @@ func Demo() {
 	// TestSlice()
 	// TestOrm()
 	// TestUpdate()
-	TestDel()
+	// TestDel()
 }
 
 func TestJson() {

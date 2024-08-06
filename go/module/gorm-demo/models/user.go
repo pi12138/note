@@ -38,14 +38,14 @@ type User struct {
 	Name         string
 	Info         datatypes.JSON // {"height": 180, "weight": 80}
 	UsernameList datatypes.JSON // ["oldName", "newName"]
-	Pf           Profile
-	FatherId     *uint
-	PfP          *Profile
-	Usernames    []string   `gorm:"type:text"`
-	Usernames2   []string   `gorm:"serializer:json"`
-	One          FieldOne   `gorm:"serializer:json"`
-	Ones         []FieldOne `gorm:"serializer:json"`
+	// Pf           Profile
+	// FatherId     *uint
+	// PfP          *Profile
+	// Usernames    []string   `gorm:"type:text"`
+	// Usernames2   []string   `gorm:"serializer:json"`
+	// One          FieldOne   `gorm:"serializer:json"`
+	// Ones         []FieldOne `gorm:"serializer:json"`
 
-	CreditCards []CreditCard
-	Father      *User `gorm:"foreignKey:FatherId"`
+	// CreditCards []CreditCard
+	// Father      *User `gorm:"foreignKey:FatherId"`
 }
