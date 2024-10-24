@@ -298,6 +298,12 @@ func TestStructMethod() {
 		fmt.Println(sf.Name, sf.Index)
 	}
 
+	methodOne, _ := rt.MethodByName("MethodOne")
+
+	for i := 0; i < methodOne.Type.NumIn(); i++ {
+		fmt.Println(methodOne.Type.In(i))
+	}
+
 	rt = reflect.PointerTo(rt)
 	fmt.Println(rt.NumMethod())
 	for i := 0; i < rt.NumMethod(); i++ {
@@ -313,4 +319,13 @@ func TestStructMethod() {
 		fmt.Println(sf.Name, sf.Index)
 	}
 
+	methodOne, _ = rt.MethodByName("MethodOne")
+	methodTwo, _ := rt.MethodByName("MethodTwo")
+
+	for i := 0; i < methodOne.Type.NumIn(); i++ {
+		fmt.Println(methodOne.Type.In(i))
+	}
+	for i := 0; i < methodTwo.Type.NumIn(); i++ {
+		fmt.Println(methodOne.Type.In(i))
+	}
 }
