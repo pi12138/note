@@ -18,7 +18,8 @@ func main() {
 	// MapToJson()
 	// demo.PointCanSet()
 	// SetStruct()
-	CanSet()
+	// CanSet()
+	TestStructMethod()
 }
 
 func Demo() {
@@ -260,5 +261,71 @@ func StructField() {
 	for i := 0; i < rt.NumField(); i++ {
 		sf := rt.Field(i)
 		fmt.Println(sf.Name, sf.Index)
+	}
+}
+
+type StructMethod struct {
+}
+
+func (s StructMethod) MethodOne(input string) string {
+	return input
+}
+
+func (s *StructMethod) MethodTwo(input string) string {
+	return input
+}
+
+/*
+TestStructMethod output
+
+	1
+	MethodOne 0
+	2
+	MethodOne 0
+	MethodTwo 1
+	2
+	MethodOne 0
+	MethodTwo 1
+*/
+func TestStructMethod() {
+	var sValue StructMethod
+	sPoint := new(StructMethod)
+
+	rt := reflect.TypeOf(sValue)
+	fmt.Println(rt.NumMethod())
+	for i := 0; i < rt.NumMethod(); i++ {
+		sf := rt.Method(i)
+		fmt.Println(sf.Name, sf.Index)
+	}
+
+	methodOne, _ := rt.MethodByName("MethodOne")
+
+	for i := 0; i < methodOne.Type.NumIn(); i++ {
+		fmt.Println(methodOne.Type.In(i))
+	}
+
+	rt = reflect.PointerTo(rt)
+	fmt.Println(rt.NumMethod())
+	for i := 0; i < rt.NumMethod(); i++ {
+		sf := rt.Method(i)
+		fmt.Println(sf.Name, sf.Index)
+	}
+
+	rt = reflect.TypeOf(sPoint)
+	// rt = rt.Elem()
+	fmt.Println(rt.NumMethod())
+	for i := 0; i < rt.NumMethod(); i++ {
+		sf := rt.Method(i)
+		fmt.Println(sf.Name, sf.Index)
+	}
+
+	methodOne, _ = rt.MethodByName("MethodOne")
+	methodTwo, _ := rt.MethodByName("MethodTwo")
+
+	for i := 0; i < methodOne.Type.NumIn(); i++ {
+		fmt.Println(methodOne.Type.In(i))
+	}
+	for i := 0; i < methodTwo.Type.NumIn(); i++ {
+		fmt.Println(methodOne.Type.In(i))
 	}
 }
