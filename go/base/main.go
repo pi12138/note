@@ -1,7 +1,7 @@
 package main
 
 import (
-	filedemo "base/file-demo"
+	netdemo "base/net-demo"
 	"fmt"
 )
 
@@ -42,7 +42,8 @@ func main() {
 	// map_and_slice.CompareEqualAndDeepEqual()
 	// packagedemo.Exec()
 	// filepath.Demo()
-	filedemo.Stat()
+	// filedemo.Stat()
+	netdemo.Demo()
 }
 
 func TestVarInit() {
