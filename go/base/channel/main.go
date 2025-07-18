@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"runtime"
+	"time"
 )
 
 type Ret struct {
@@ -12,6 +14,31 @@ type Ret struct {
 }
 
 func main() {
+	TestChanOneP()
+}
+
+func TestChanOneP() {
+	runtime.GOMAXPROCS(1)
+
+	ch := make(chan int)
+
+	go func() {
+		for i := 0; i < 10; i++ {
+			ch <- i
+		}
+	}()
+	go func() {
+		for i := 0; i < 10; i++ {
+			i := <-ch
+			fmt.Println(i)
+		}
+
+	}()
+
+	time.Sleep(3 * time.Second)
+}
+
+func Test() {
 
 	length := 10
 	ch := make(chan Ret)

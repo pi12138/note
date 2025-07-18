@@ -1,11 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"gin-demo/auth"
 	"gin-demo/auth/memstore"
 
-	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 )
 
@@ -20,6 +18,10 @@ func main() {
 	r.POST("/login", login)
 	r.GET("/user", user)
 	r.GET("/logout", logout)
+	r.POST("/upload", func(c *gin.Context) {
+		c.FormFile("file")
+		c.Status(200)
+	})
 	r.Run(":8000")
 }
 
@@ -68,16 +70,17 @@ func logout(c *gin.Context) {
 }
 
 func sessionValues(c *gin.Context) map[string]any {
-	session := sessions.Default(c)
-	var values = make(map[string]any)
-	for k, v := range session.Session().Values {
-		values[fmt.Sprintf("%s", k)] = v
-	}
+	// session := sessions.Default(c)
+	// var values = make(map[string]any)
+	// for k, v := range session.Session().Values {
+	// 	values[fmt.Sprintf("%s", k)] = v
+	// }
 
-	return map[string]any{
-		"values": values,
-		"id":     session.Session().ID,
-		"is_new": session.Session().IsNew,
-		"name":   session.Session().Name(),
-	}
+	// return map[string]any{
+	// 	"values": values,
+	// 	"id":     session.Session().ID,
+	// 	"is_new": session.Session().IsNew,
+	// 	"name":   session.Session().Name(),
+	// }
+	return nil
 }
